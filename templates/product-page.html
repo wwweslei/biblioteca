@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+
+{% block content %}
+{{ super() }}
+<main class="page product-page">
+    <section class="clean-block clean-product dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Projeto integrador {{pi.course}}</h2>
+                <p>{{pi.title}} Trabalho desenvolvido pela turma do polo de {{pi.pole}} no ano de {{pi.year}}
+                                 para o curso de {{pi.course}}</p>
+            </div>
+            <div class="block-content">
+                <div class="product-info">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="gallery">
+                                <div class="sp-wrap"><a href="/static/assets/library/{{pi.filename_page1}}"><img class="img-fluid d-block mx-auto"
+                                             src="/static/assets/library/{{pi.filename_page1}}"></a><a
+                                        href="/static/assets/library/{{pi.filename_page2}}"><img class="img-fluid d-block mx-auto"
+                                            src="/static/assets/library/{{pi.filename_page2}}""></a><a
+                                        href="/static/assets/library/{{pi.filename_page3}}"><img class="img-fluid d-block mx-auto"
+                                            src="/static/assets/library/{{pi.filename_page3}}"></a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info">
+                                <h3>{{pi.title}}</h3>
+                                <div class="rating"><img src="/static/assets/img/star.svg"><img src="/static/assets/img/star.svg"><img
+                                        src="/static/assets/img/star.svg"><img src="/static/assets/img/star-half-empty.svg"><img
+                                        src="/static/assets/img/star-empty.svg"></div>
+                                <div class="price">
+                                    <!-- <h3>$300.00</h3> -->
+
+
+                                </div><a href="/static/assets/library/{{pi.filename}}" class="btn btn-primary" download="{{pi.filename}}"><i class="icon-basket"></i>Download </a><br><br><br>
+
+                                <div class="text-info">
+                                    <p>Resumo: {{pi.resumen}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div>
+                        <ul class="nav nav-tabs" id="myTab">
+                            <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab"
+                                    id="description-tab" href="#description">Descrição</a></li>
+                            <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" id="reviews-tab"
+                                    href="#reviews">Reviews</a></li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane active fade show description" role="tabpanel" id="description">
+                                <p>Descrição: {{pi.resumen}}</p>                           
+                            </div>
+                            <div class="tab-pane fade show" role="tabpanel" id="reviews">
+                                <div class="reviews">
+                                    <div class="review-item">
+                                        <div class="rating"><img src="/static/assets/img/star.svg"><img
+                                                src="/static/assets/img/star.svg"><img src="/static/assets/img/star.svg"><img
+                                                src="/static/assets/img/star.svg"><img src="/static/assets/img/star-empty.svg"></div>
+                                        <h4>Incredible project</h4><span class="text-muted"><a href="#">Weslei silva bomfim</a>,
+                                            20 Jan 2019</span>
+                                        <p>Tanto por ser distópico, como por possuir uma premissa ligeiramente kafkana.
+                                             O arco deste trabalho serve para provar um ponto, não para resolver o conflito.
+                                             Cada elemento colocado lá é um aviso.</p>
+                                    </div>
+                                </div>
+                                <div class="reviews">
+                                    <div class="review-item">
+                                        <div class="rating"><img src="/static/assets/img/star.svg"><img
+                                                src="/static/assets/img/star.svg"><img src="/static/assets/img/star.svg"><img
+                                                src="/static/assets/img/star.svg"><img src="/static/assets/img/star-empty.svg"></div>
+                                        <h4>Ótimo</h4><span class="text-muted"><a href="#">John Smith</a>,
+                                            20 Jan 2018</span>
+                                        <p>Ótimo trabalho muito bem fundamentado.</p>
+                                    </div>
+                                </div>
+                                <div class="reviews">
+                                    <div class="review-item">
+                                        <div class="rating"><img src="/static/assets/img/star.svg"><img
+                                                src="/static/assets/img/star.svg"><img src="/static/assets/img/star.svg"><img
+                                                src="/static/assets/img/star.svg"><img src="/static/assets/img/star-empty.svg"></div>
+                                        <h4>Incredible </h4><span class="text-muted"><a href="#">John Smith</a>,
+                                            20 Jan 2018</span>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec augue nunc,
+                                            pretium at augue at, convallis pellentesque ipsum. Lorem ipsum dolor sit
+                                            amet, consectetur adipiscing elit.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clean-related-items">
+                    <h3>Trabalhos Semelhantes</h3>
+                    <div class="items">
+                        <div class="row justify-content-center">
+
+                            {%for index in all_pi[:3]%}
+
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="clean-related-item">
+                                    <div class="image"><a href="/{{index.title}}"><img class="img-fluid d-block mx-auto"
+                                                src="/static/assets/library/{{index.filename_page1}}"></a></div>
+                                    <div class="related-name"><a href="#">{{index.title}}</a>
+                                        <div class="rating"><img src="/static/assets/img/star.svg"><img
+                                                src="/static/assets/img/star.svg"><img src="/static/assets/img/star.svg"><img
+                                                src="/static/assets/img/star-half-empty.svg"><img
+                                                src="/static/assets/img/star-empty.svg"></div>                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}
+
+{% block script %}
+{{ super() }}
+{% endblock %}

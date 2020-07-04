@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+
+{% block content %}
+{{ super() }}
+
+<main class="page catalog-page">
+    <section class="clean-block clean-catalog dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Biblioteca Digital</h2>
+                <p>Biblioteca digital desenvolvida pelos alunos do grupo 4N.1 Engenharia da computação. <br></p>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-success" role="alert">
+                        <h4>{{ message }}</h4>
+                      </div>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="d-none d-md-block">
+                            <div class="filters">
+                                <div class="filter-item">
+                                    <form action="/" method=post>
+                                        {{ form.hidden_tag() }}
+                                        {{ form.csrf_token() }}
+                                        
+                                        <h3>Curso</h3>
+
+                                        <div class="form-check">
+                                            {{form.check_computacao}} {{form.computacao.label}}
+                                        </div>
+
+                                        <div class="form-check">
+                                            {{form.check_producao}} {{form.producao.label}}
+                                        </div>
+
+                                        <div class="form-check">
+                                            {{form.check_fisica}} {{form.fisica.label}}
+                                        </div>
+
+                                        <div class="form-check">
+                                            {{form.check_matematica}} {{form.matematica.label}}
+                                        </div>
+
+                                        <div class="form-check">
+                                            {{form.check_pedagogia}} {{form.pedagogia.label}}
+                                        </div>
+
+                                        <h3>Ano</h3>
+
+                                        <div class="form-check">
+                                            {{form.check_2017}} {{form.ano2017.label}}
+                                        </div>
+
+                                        <div class="form-check">
+                                            {{form.check_2018}} {{form.ano2018.label}}
+                                        </div>
+
+                                        <div class="form-check">
+                                            {{form.check_2019}} {{form.ano2019.label}}
+                                        </div>
+
+                                        <div class="form-check">
+                                            {{form.check_2020}} {{form.ano2020.label}}
+                                        </div>
+
+                                        <h3>Polo</h3>
+
+                                        <div class="form-check">
+                                            {{form.check_mongagua}} {{form.mongagua.label}}
+                                        </div>
+
+                                        <div class="form-check">
+                                            {{form.check_peruibe}} {{form.peruibe.label}}
+                                        </div>
+
+                                        <div class="form-check">
+                                            {{form.check_itanhaem}} {{form.itanhaem.label}}
+                                        </div> <br>
+
+                                        {{ form.submit }}
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-9">
+                        <div class="products">
+                            <div class="row no-gutters">
+                                {%for p in pi%}
+                                <div class="col-12 col-md-6 col-lg-4">
+                                    <div class="clean-product-item">
+                                        <div class="image"><a href="/{{p.title}}"><img
+                                                    class="img-fluid d-block mx-auto"
+                                                    src="/static/assets/library/{{p.filename_page1}}"></a></div>
+                                        <div class="product-name"><a href="/{{p.title}}">{{p.title}}</a></div>
+                                        <div class="about">
+                                            <div class="rating"><img src="/static/assets/img/star.svg"><img
+                                                    src="/static/assets/img/star.svg"><img
+                                                    src="/static/assets/img/star.svg"><img
+                                                    src="/static/assets/img/star-half-empty.svg"><img
+                                                    src="/static/assets/img/star-empty.svg"></div>
+                                            <div class="price">
+                                                <!-- <h3>$100</h3> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}
+
+{% block script %}
+{{ super() }}
+{% endblock %}

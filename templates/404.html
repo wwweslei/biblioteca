@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+{{ super() }}
+
+<br><br><br><br><br><br><br><br><br><br>
+
+<div class="container-fluid">
+    <div class="text-center mt-5">
+        <div class="error mx-auto" data-text="404">
+            <p class="m-0">404</p>
+        </div>
+        <p class="text-dark mb-5 lead">Page Not Found</p>
+        <p class="text-black-50 mb-0">desculpa a pagina que você tentou acessar não existe!...</p><a href="/">←
+            Voltar a Home Page</a>
+    </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+{% endblock %}
+{% block footer %}
+{{ super() }}
+{% endblock %}
+{% block script %}
+{{ super() }}
+{% endblock %}
